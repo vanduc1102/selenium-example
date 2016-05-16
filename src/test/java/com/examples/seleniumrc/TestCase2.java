@@ -8,10 +8,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestCase2 {
-	WebDriver driver = new ChromeDriver();
+			
+	WebDriver driver;
 
 	@Before
 	public void setUp() throws Exception {
+		System.setProperty("webdriver.chrome.driver", "D:\\TODO\\chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("http://only-testing-blog.blogspot.in/2013/11/new-test.html");
 	}
