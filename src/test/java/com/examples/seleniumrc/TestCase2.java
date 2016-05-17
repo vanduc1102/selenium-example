@@ -13,7 +13,7 @@ public class TestCase2 {
 
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.chrome.driver", "D:\\TODO\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "/home/duomnguyen/dev/chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("http://only-testing-blog.blogspot.in/2013/11/new-test.html");
