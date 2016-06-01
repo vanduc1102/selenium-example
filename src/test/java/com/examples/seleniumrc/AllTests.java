@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ AppTest.class, TestCase1.class, TestCase2.class, KyotokimonoRentalTest.class })
+@SuiteClasses({ TestPropertyReader.class, KyotokimonoRentalTest.class })
 public class AllTests {
 
 }

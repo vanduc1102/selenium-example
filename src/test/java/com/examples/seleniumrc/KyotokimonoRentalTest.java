@@ -12,12 +12,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.examples.seleniumrc.utils.PropertyReader;
+
 public class KyotokimonoRentalTest {
 	WebDriver driver;
 
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.chrome.driver", "/home/duomnguyen/dev/chromedriver");
+		String driverUrl = PropertyReader.getValue("chromedriver");
+		System.setProperty("webdriver.chrome.driver",driverUrl);
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://kyotokimono-rental.com/reserve");
