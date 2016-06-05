@@ -12,10 +12,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.examples.seleniumrc.utils.PropertyReader;
+import com.examples.seleniumrc.util.ElementHelperSingleton;
+import com.examples.seleniumrc.util.PropertyReader;
 
 public class KyotokimonoRentalTest {
 	WebDriver driver;
+	ElementHelperSingleton elementHelper;
 
 	@Before
 	public void setUp() throws Exception {
@@ -24,6 +26,7 @@ public class KyotokimonoRentalTest {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://kyotokimono-rental.com/reserve");
+		elementHelper = ElementHelperSingleton.getInstance(driver);
 	}
 
 	@After
@@ -34,16 +37,15 @@ public class KyotokimonoRentalTest {
 	@Test
 	public void fisrtSelectBox() throws InterruptedException {
 
-		WebElement checkBoxElement = driver.findElement(By.id("list_plans_1SelectBoxItContainer"));
+		WebElement checkBoxElement = elementHelper.findElementById("list_plans_1SelectBoxItContainer");
 		checkBoxElement.click();
 		Thread.sleep(500);
 
-		WebElement itemElement3 = driver
-				.findElement(By.xpath(".//*[@id='list_plans_1SelectBoxItOptions']/li[4]/a/span[2]"));
+		WebElement itemElement3 = elementHelper.findElementByXpath(".//*[@id='list_plans_1SelectBoxItOptions']/li[4]/a/span[2]");
 		itemElement3.click();
 		Thread.sleep(500);
 
-		WebElement resultElement = driver.findElement(By.xpath(".//*[@id='list_plans_1SelectBoxItText']/span[1]"));
+		WebElement resultElement = elementHelper.findElementByXpath(".//*[@id='list_plans_1SelectBoxItText']/span[1]");
 		String textResult = resultElement.getText();
 
 		System.out.println("The text result is : " + textResult);
@@ -52,8 +54,7 @@ public class KyotokimonoRentalTest {
 
 	@Test
 	public void getAlertMessage() throws InterruptedException {
-		WebElement checkBoxElement = driver
-				.findElement(By.xpath(".//*[@id='formAddPlan']/div[1]/div/ul/li[1]/div[3]/div[2]/div[1]/a"));
+		WebElement checkBoxElement = elementHelper.findElementByXpath(".//*[@id='formAddPlan']/div[1]/div/ul/li[1]/div[3]/div[2]/div[1]/a");
 		checkBoxElement.click();
 		Thread.sleep(500);
 

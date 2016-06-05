@@ -5,7 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.examples.seleniumrc.utils.PropertyReader;
+import com.examples.seleniumrc.util.PropertyReader;
+
 
 public class TestPropertyReader {
 
